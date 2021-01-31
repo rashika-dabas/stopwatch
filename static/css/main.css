@@ -1,0 +1,36 @@
+html{
+    height: 100%;
+}
+
+body{
+    margin: 0;
+    height: 100%;
+}
+
+.container{
+    height: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.timer{
+    display: flex;
+    font-size: 50px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+button{
+    background-color: rgb(110, 110, 162);
+    height: 40px;
+    width: 100px;
+    color: white;
+}
+
+.actions{
+    align-self: stretch;
+    display: flex;
+    justify-content: space-evenly;
+}
