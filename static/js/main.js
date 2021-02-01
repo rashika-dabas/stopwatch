@@ -9,7 +9,9 @@ var state = {
     min: 0,
     sec: 0
 };
+var id;
 
+setTime(state);
 
 function computeNextTime(state) {
     var min = state.min;
@@ -38,20 +40,37 @@ function setTime(state) {
 
 function handleStart() {
 
-    setInterval(function () {
-        var newState = computeNextTime(state);
-        state = newState;
-        setTime(state);
-    }, 1000);
+    if(id == undefined){
+        id=setInterval(function () {
+            var newState = computeNextTime(state);
+            state = newState;
+            setTime(state);
+        }, 1000);
+    }
+
 }
 
 function handlePause() {
+
+    if(id==undefined){
+        return;
+    }
+
+    clearInterval(id);
+    id = undefined;
 
 }
 
 
 function handleReset() {
 
+    clearInterval(id);
+    state={
+        min:0,
+        sec:0,
+    };
+    setTime(state);
+    id=undefined;
 }
 
 start.addEventListener('click', handleStart);
